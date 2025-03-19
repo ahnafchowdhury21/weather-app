@@ -2,6 +2,9 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .card {
@@ -30,4 +33,42 @@ body {
   .mainInfo p {
     font-size: 0.8rem;
   }
+}
+
+/* Hide the navbar search box on smaller screens */
+@media (max-width: 992px) {
+  #search-form-navbar {
+    display: none !important;
+  }
+}
+
+/* Hide the mobile search box on larger screens */
+@media (min-width: 992px) {
+  #search-box-mobile {
+    display: none !important;
+  }
+}
+
+footer {
+  margin-top: auto;
+}
+
+#mainDiv {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+}
+
+#mainDiv.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1050; /* Ensure it appears above other elements */
+  width: 3rem;
+  height: 3rem;
 }
