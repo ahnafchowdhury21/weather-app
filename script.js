@@ -6,26 +6,28 @@ document.addEventListener("DOMContentLoaded", () => {
     const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&units=metric`;
     let cardTitle = document.getElementById("title");
     console.log(city.value);
+    if (city.value.trim() == "") {
+      document.getElementById("mainDiv").style.opacity = 0;
+    } else {
+      //   fetch Weather Data
 
-    //   fetch Weather Data
-
-    fetch(weatherUrl)
-      .then((response) => {
-        if (!response.ok) {
-          document.getElementById("mainDiv").style.opacity = 1;
-          cardTitle.innerText = "City or Country not found";
-          document.querySelector(".mainInfo").innerHTML = "";
-          throw new Error("Failed to fetch the data");
-        } else {
-          document.getElementById("mainDiv").style.opacity = 1;
-          cardTitle.innerHTML = `Weather in <span id="card_city" class="text-success">${city.value
-            .charAt(0)
-            .toUpperCase()}${city.value.slice(1).toLowerCase()}</span>`;
-          return response.json();
-        }
-      })
-      .then((data) => {
-        document.querySelector(".mainInfo").innerHTML = `
+      fetch(weatherUrl)
+        .then((response) => {
+          if (!response.ok) {
+            document.getElementById("mainDiv").style.opacity = 1;
+            cardTitle.innerText = "City or Country not found";
+            document.querySelector(".mainInfo").innerHTML = "";
+            throw new Error("Failed to fetch the data");
+          } else {
+            document.getElementById("mainDiv").style.opacity = 1;
+            cardTitle.innerHTML = `Weather in <span id="card_city" class="text-success">${city.value
+              .charAt(0)
+              .toUpperCase()}${city.value.slice(1).toLowerCase()}</span>`;
+            return response.json();
+          }
+        })
+        .then((data) => {
+          document.querySelector(".mainInfo").innerHTML = `
         <p
       style="
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
@@ -121,16 +123,17 @@ document.addEventListener("DOMContentLoaded", () => {
       "
     >
       Wind Speed: ${data.wind.speed}m/s (${(data.wind.speed * 3.6).toFixed(
-          2
-        )}km/h)
+            2
+          )}km/h)
     </p>
       
         `;
 
-        console.log(data);
-      })
-      .catch((error) => {
-        console.log("Error:", error);
-      });
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log("Error:", error);
+        });
+    }
   });
 });
