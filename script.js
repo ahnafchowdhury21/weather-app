@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((response) => {
         if (!response.ok) {
           document.getElementById("mainDiv").style.opacity = 1;
-          cardTitle.innerText = "City not found";
+          cardTitle.innerText = "City/Country not found";
           document.querySelector(".mainInfo").innerHTML = "";
           throw new Error("Failed to fetch the data");
         } else {
