@@ -2,6 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchButton = document.getElementById("search");
   const searchButtonMobile = document.getElementById("searchMobile");
 
+  const scrollToMainDiv = () => {
+    const mainDiv = document.getElementById("mainDiv");
+    mainDiv.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   const handleSearch = (e, inputId) => {
     e.preventDefault();
     const city = document.getElementById(inputId);
@@ -158,6 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
           .finally(() => {
             spinner.style.display = "none";
             mainDiv.classList.add("show");
+            scrollToMainDiv();
           });
       }, 300);
     }
