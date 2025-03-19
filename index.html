@@ -16,7 +16,11 @@
   <body class="bg-dark">
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><small>Check Your</small> Weather</a>
+        <a
+          class="navbar-brand"
+          href="https://ahnafchowdhury21.github.io/weather-app"
+          ><small>Check Your</small> Weather</a
+        >
         <button
           class="navbar-toggler"
           type="button"
@@ -31,7 +35,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">API</a>
+              <a
+                class="nav-link text-light"
+                href="https://openweathermap.org/current"
+                target="_blank"
+                aria-disabled="false"
+                >API</a
+              >
             </li>
           </ul>
           <form
@@ -105,7 +115,8 @@
           <div class="mainInfo" style="width: 100%"></div>
 
           <a
-            href="#"
+            id="searchAgain"
+            href=""
             class="btn btn-success"
             onclick="event.preventDefault(); document.getElementById('searchInput').focus(); document.getElementById('searchInput').value = '';"
             >Search Again</a

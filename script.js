@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const searchButton = document.getElementById("search");
   const searchButtonMobile = document.getElementById("searchMobile");
-
+  const searchAgain = document.getElementById("searchAgain");
   const scrollToMainDiv = () => {
     const mainDiv = document.getElementById("mainDiv");
     mainDiv.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -11,10 +11,21 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     const city = document.getElementById(inputId);
     const apiKey = "152af43562b1cab90f909271334ffbdd";
-    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&units=metric`;
+    const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value.trim()}&appid=${apiKey}&units=metric`;
     let cardTitle = document.getElementById("title");
     const spinner = document.getElementById("spinner");
     const mainDiv = document.getElementById("mainDiv");
+
+    searchAgain.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (inputId === "searchInput") {
+        document.getElementById("searchInput").focus();
+        document.getElementById("searchInput").value = "";
+      } else if (inputId === "searchInputMobile") {
+        document.getElementById("searchInputMobile").focus();
+        document.getElementById("searchInputMobile").value = "";
+      }
+    });
 
     if (city.value.trim() === "") {
       mainDiv.classList.remove("show");
