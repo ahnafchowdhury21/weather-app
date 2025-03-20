@@ -82,10 +82,6 @@ body {
   .card {
     padding: 0.5rem;
   }
-
-  .mainInfo p {
-    font-size: 0.9rem;
-  }
 }
 
 @media (max-width: 576px) {
@@ -93,8 +89,8 @@ body {
     padding: 0.3rem;
   }
 
-  .mainInfo p {
-    font-size: 0.8rem;
+  .emoji {
+    font-size: 2rem;
   }
 }
 
@@ -177,7 +173,7 @@ footer {
 }
 
 /* Ensure proper scaling for very small screens */
-@media (max-width: 320px) {
+@media (max-width: 390px) {
   #tempInfo {
     width: 100%;
   }
