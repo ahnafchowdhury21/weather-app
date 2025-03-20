@@ -80,13 +80,13 @@ body {
 
 @media (max-width: 768px) {
   .card {
-    padding: 0.5rem;
+    padding: 2rem 0.4rem;
   }
 }
 
 @media (max-width: 576px) {
   .card {
-    padding: 0.3rem;
+    padding: 2rem 0.4rem;
   }
 
   .emoji {
@@ -133,14 +133,15 @@ footer {
 }
 
 /* Adjust card padding and font sizes for smaller screens */
-@media (max-width: 480px) {
+@media (max-width: 484px) {
   .card {
-    padding: 0.2rem;
+    padding: 2rem 0.4rem;
   }
 
   #tempInfo {
-    flex-direction: column;
-    width: 90%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 60%;
     padding: 10px;
   }
 
@@ -175,10 +176,12 @@ footer {
 /* Ensure proper scaling for very small screens */
 @media (max-width: 390px) {
   #tempInfo {
-    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 70%;
   }
   .card {
-    padding: 1rem 0.4rem;
+    padding: 2rem 0.4rem;
   }
 
   .others {
