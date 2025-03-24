@@ -174,7 +174,7 @@ footer {
 }
 
 /* Ensure proper scaling for very small screens */
-@media (max-width: 399px) {
+@media (max-width: 400px) {
   #tempInfo {
     flex-direction: row;
     justify-content: space-evenly;
